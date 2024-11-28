@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="nav-bar">
+        <!-- <img src="images/logo2.png" alt="" class="logo"> -->
+
+    </div>
+    <div class="container">
+        <div class="first boxes">
+            <h1>"Build a <span>standout</span> resume with us and land your dream job with ease."</h1>
+            <div id="build-dev"><a href="#generator" id="build">Generate my Resume</a></div>
+        </div>
+        <div class="second boxes">
+            <div class="images-box">
+                <div class="in-imgbox first-img">
+                    <img src="images/resume templates.webp" alt="" class="image">
+                </div>
+                <div class="in-imgbox sec-img">
+                    <img src="images/resume.webp" alt="" class="image">
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="generator-box" id="generator">
+        <link rel="stylesheet" href="style.css">
+        <div class="form">
+            <form action="">
+                <!-- personal details -->
+                <div class="infocontainer">
+                    <h1>Personal Details</h1>
+                    <div class="fieldContainer">
+                        <div class="info">
+                            <h3>Full Name</h3>
+                            <input type="text" required id="FullNameF" class="data">
+                        </div>
+                        <div class="info">
+                            <h3>Applying role</h3>
+                            <input type="text" required id="RoleF" class="data">
+                        </div>
+
+                    </div>
+                    <div class="fieldContainer">
+                        <div class="info">
+                            <h3>Phone number</h3>
+                            <input type="text" required id="PhoneNumberF" class="data">
+                        </div>
+                        <div class="info">
+                            <h3>Email</h3>
+                            <input type="text" required id="EmailF" class="data">
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- summary -->
+                <div class="infocontainer">
+                    <h1>Summary</h1>
+                    <div class="longfieldContainer">
+                        <div class="longInfoInput data LText" id="SummaryF"></div>
+                    </div>
+                </div>
+
+                <!-- experience -->
+                <div class="infocontainer" id="exp">
+                    <h1>Experience</h1>
+                    <div class="addBut" id="addExp">Add Experience</div>
+
+                    <div class="fieldContainer">
+                        <div class="info">
+                            <h3>Company Name</h3>
+                            <input type="text" required id="CompanyNameF" class="data">
+                        </div>
+                        <div class="info">
+                            <h3>Title</h3>
+                            <input type="text" required id="TitleF" class="data">
+                        </div>
+
+                    </div>
+                    <div class="fieldContainer">
+                        <div class="comp-info">
+                            <h3>Company Description</h3>
+                            <div class="longInfoInput data LText" id="CompanyDescriptionF"></div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <!-- education -->
+                <div class="infocontainer"id="edu">
+                    <h1>Education</h1>
+                    <div class="addBut" id="addEdu">Add Education</div>
+                    <div class="fieldContainer">
+                        <div class="info">
+                            <h3>School or University</h3>
+                            <input type="text" required id="SchoolNameF" class="data">
+                        </div>
+                        <div class="info">
+                            <h3>Field of study</h3>
+                            <input type="text" required id="DegreeF" class="data">
+                        </div>
+                    </div>
+                </div>
+                <!-- skills -->
+                <div class="infocontainer">
+                    <h1>Skills</h1>
+                    <div class="longfieldContainer">
+                        <div class="longInfoInput data LText" id="SkillsF"></div>
+                    </div>
+                </div>
+                <!-- certification -->
+                <div class="infocontainer generate">
+                    <h1>Certification</h1>
+                    <div class="longfieldContainer">
+                        <div class="longInfoInput data LText" id="CertificationF"></div>
+                    </div>
+                    <div class="but">
+                        <!-- making generate button -->
+                        <button type="submit" class="button2">Generate</button>
+                    </div>
+
+                </div>
+            </form>
+
+        </div>
+        <!-- making button -->
+        <div class="button"><a href="#locate">Enable live Preview</a></div>
+        <div class="opt">
+            <div class="buttons edit">
+                <i class="fa-solid fa-pen" style="color: #B197FC;"></i>
+                <div>Edit</div>
+            </div>
+            <div class="buttons sec download">
+                <i class="fa-solid fa-download" style="color: #B197FC;"></i>
+                <div>Download</div>
+            </div>
+        </div>
+        <!-- making save button-->
+        <div class="button save">Save</div>
+
+
+        <!-- making preview box -->
+        <div class="preview">
+            <div class="borderbox" id="locate">
+                <i class="fa-solid fa-xmark cross"></i>
+                <div class="personaldetails">
+                    <div class="personal">
+                        <div class="placeholder" id="name"></div>
+                    </div>
+                    <div class=" personal">
+                        <div class="placeholder" id="role"></div>
+                    </div>
+                    <div class=" personal">
+                        <div class="placeholder" id="phone"></div>
+                        <div class="placeholder" id="email"></div>
+                    </div>
+                </div>
+
+                <div class="summary">
+                    <div class="headingS">
+                        <h2>Summary</h2>
+                    </div>
+                    <div class=" placeholder" id="summaryText"></div>
+                </div>
+
+                <div class="experience" id="expPreview">
+                    <div class="heading">
+                        <h2>Experience</h2>
+                    </div>
+                    <div class="detailContainer">
+                        <div class=" fieldmeasurements placeholder" id="title"></div>
+                        <div class=" fieldmeasurements placeholder" id="companyName"></div>
+                        <div class="duration">
+                            <div class="start"></div>
+                            <div class="end"></div>
+                        </div>
+                        <div class=" fieldmeasurements placeholder" id="companydescription"></div>
+                    </div>
+                </div>
+
+                <div class="education"id="eduPreview">
+                    <div class="heading">
+                        <h2>Education</h2>
+                    </div>
+                    <div class="detailContainer">
+                        <div id="schoolname" class=" fieldmeasurements placeholder"></div>
+                        <div id="degree" class=" fieldmeasurements placeholder"></div>
+                    </div>
+                </div>
+
+                <div class="skills">
+                    <div class="heading">
+                        <h2>Skills</h2>
+                    </div>
+                    <div class="detailContainer">
+                        <div id="skill" class="fieldmeasurements placeholder"></div>
+                    </div>
+
+                </div>
+
+                <div class="certification">
+                    <div class="heading">
+                        <h2>Certification</h2>
+                    </div>
+                    <div class="detailContainer">
+                        <div id="certificates" class="fieldmeasurements placeholder"></div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <script src="main.js"></script>
+
+
+</body>
+
+</html>
+
+<!-- const form=document.querySelector("form");
+form.addEventListener("submit",(e)=>{
+  e.preventDefault();
+
+  const height=parseInt(document.querySelector("#height").value);
+  const weight=parseInt(document.querySelector("#weight").value);
+  const results=document.querySelector("#results");
+  if(height==="" || height<0 || isNaN(height)){
+    results.innerHTML="Please give a valid height"
+  }
+  else if(weight==="" || weight<0 || isNaN(weight)){
+    results.innerHTML="Please give a valid weight"
+  }else{
+    const cal=height*weight;
+    results.innerHTML=`<span>${cal}</span>`
+
+  }
+});
+const inputfields=document.querySelectorAll(".data");
+console.log(inputfields);
+inputfields.forEach((inputfield)=>{
+  inputfield.addEventListener("input",()=>{
+    if (document.activeElement===height){
+      const box1=document.querySelector(".height");
+      box1.innerText=height.value;
+    }
+    else if (document.activeElement===weight){
+      const box2=document.querySelector(".weight");
+      box2.innerText=weight.value;
+    }
+  })
+});
+const boxheight=document.querySelectorAll(".final");
+boxheight.forEach((boxs)=>{
+  boxs.contentEditable="true";
+
+}); -->
