@@ -138,13 +138,13 @@
 
         </div>
         <!-- making button -->
-        <div class="button"><a href="#locate">Enable live Preview</a></div>
+        <div class="button"><a href="#print-section">Enable live Preview</a></div>
         <div class="opt">
             <div class="buttons edit">
                 <i class="fa-solid fa-pen" style="color: #B197FC;"></i>
                 <div>Edit</div>
             </div>
-            <div class="buttons sec download">
+            <div class="buttons sec download" >
                 <i class="fa-solid fa-download" style="color: #B197FC;"></i>
                 <div>Download</div>
             </div>
@@ -155,7 +155,7 @@
 
         <!-- making preview box -->
         <div class="preview">
-            <div class="borderbox" id="locate">
+            <div class="borderbox" id="#print-section">
                 <i class="fa-solid fa-xmark cross"></i>
                 <div class="personaldetails">
                     <div class="personal">
@@ -236,40 +236,3 @@
 
 </html>
 
-<!-- const form=document.querySelector("form");
-form.addEventListener("submit",(e)=>{
-  e.preventDefault();
-
-  const height=parseInt(document.querySelector("#height").value);
-  const weight=parseInt(document.querySelector("#weight").value);
-  const results=document.querySelector("#results");
-  if(height==="" || height<0 || isNaN(height)){
-    results.innerHTML="Please give a valid height"
-  }
-  else if(weight==="" || weight<0 || isNaN(weight)){
-    results.innerHTML="Please give a valid weight"
-  }else{
-    const cal=height*weight;
-    results.innerHTML=`<span>${cal}</span>`
-
-  }
-});
-const inputfields=document.querySelectorAll(".data");
-console.log(inputfields);
-inputfields.forEach((inputfield)=>{
-  inputfield.addEventListener("input",()=>{
-    if (document.activeElement===height){
-      const box1=document.querySelector(".height");
-      box1.innerText=height.value;
-    }
-    else if (document.activeElement===weight){
-      const box2=document.querySelector(".weight");
-      box2.innerText=weight.value;
-    }
-  })
-});
-const boxheight=document.querySelectorAll(".final");
-boxheight.forEach((boxs)=>{
-  boxs.contentEditable="true";
-
-}); -->

@@ -29,7 +29,7 @@ experience === null || experience === void 0 ? void 0 : experience.addEventListe
     var contain = newPre.querySelector(".detailContainer");
     if (contain) {
         contain.style.border = "none";
-        contain.style.marginTop = "10px";
+        // contain.style.marginTop="10px"
     }
     var newPreInputs = [
         newPre.querySelector(".newPreTitle"),
@@ -563,16 +563,39 @@ if (savebutton) {
         }
     });
 }
-// creating download logic
+// // creating download logic
+// const download: HTMLDivElement | null = document.querySelector(".download");
+// const resume: HTMLDivElement | null = document.querySelector(".borderbox");
+// download?.addEventListener("click", () => {
+//     if (resume) {
+//         // Temporarily hide everything except the preview box
+//         const originalContent = document.body.innerHTML; // Save original page content
+//         document.body.innerHTML = resume.innerHTML; // Replace with preview content
+//         window.print(); // Trigger the print dialog
+//     }
+// })
 var download = document.querySelector(".download");
 var resume = document.querySelector(".borderbox");
 download === null || download === void 0 ? void 0 : download.addEventListener("click", function () {
+    var _a, _b, _c;
     if (resume) {
-        // Temporarily hide everything except the preview box
-        var originalContent = document.body.innerHTML; // Save original page content
-        document.body.innerHTML = resume.innerHTML; // Replace with preview content
-        window.print(); // Trigger the print dialog
-        document.body.innerHTML = originalContent; // Restore original page content
-        location.reload();
+        // Create a hidden iframe for the printable content
+        var iframe_1 = document.createElement("iframe");
+        iframe_1.style.position = "absolute";
+        iframe_1.style.top = "-10000px"; // Move it out of view
+        document.body.appendChild(iframe_1);
+        var iframeDoc = iframe_1.contentDocument || ((_a = iframe_1.contentWindow) === null || _a === void 0 ? void 0 : _a.document);
+        if (iframeDoc) {
+            iframeDoc.open();
+            iframeDoc.write("\n        <!DOCTYPE html>\n        <html>\n        <head>\n          <title>Print Resume</title>\n          <style>\n          .detailContainer {\n            border-top: 2px solid black;\n            margin: 8px 0px 10px 0px;\n            }\n          .fieldmeasurements {\n            padding: 2px;\n            }\n            body {\n              font-family: Arial, sans-serif;\n              margin: 20px;\n            }\n              .heading {\n    display: flex;\n    justify-content: center;\n    margin-top: 50px\n}\n    .headingS {\n    display: flex;\n    justify-content: center;\n    margin-top: 30px\n}\n    .personaldetails {\n    padding: 10px 10px 3px 10px;\n\n}\n    .personal {\n    display: flex;\n    justify-content: center;\n    margin-bottom: 7px;\n    gap: 15px;\n\n\n}\n    .borderbox {\n    border: 2px solid #2D3639;\n    background-color: white;\n    padding: 80px 60px 100px 60px;\n    font-family: \"Calibri\";\n    position: relative;\n     break-inside: avoid;\n\n}\n\n#name {\n    font-size: 30px;\n    font-weight: bold;\n}\n\n#role {\n    font-size: 22px;\n\n}\n\n/* summary */\n#summaryText {\n    border-top: 2px solid black;\n    margin: 8px 0px 20px 0px;\n    padding: 10px;\n\n}\n\n/* experience */\n\n#companyName {\n    font-size: 17px;\n}\n\n#title {\n    font-size: 19px;\n    font-weight: 600\n}\n\n.newPreTitle {\n    font-size: 19px;\n    font-weight: 600\n}\n\n.newPreComName {\n    font-size: 17px;\n\n}\n\n/* education */\n#schoolname {\n    font-size: 19px;\n    font-weight: 600\n}\n\n#degree {\n    font-size: 18px;\n\n}\n\n.newSchoolP {\n    font-size: 19px;\n    font-weight: 600\n}\n\n.newFieldP {\n    font-size: 18px;\n\n}\n\n          </style>\n        </head>\n        <body>\n          ".concat(resume.innerHTML, "\n        </body>\n        </html>\n      "));
+            iframeDoc.close();
+            // Trigger the print dialog in the iframe
+            (_b = iframe_1.contentWindow) === null || _b === void 0 ? void 0 : _b.focus();
+            (_c = iframe_1.contentWindow) === null || _c === void 0 ? void 0 : _c.print();
+        }
+        // Remove the iframe after a short delay
+        setTimeout(function () {
+            iframe_1.remove();
+        }, 1000);
     }
 });

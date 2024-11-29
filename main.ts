@@ -55,11 +55,11 @@ experience?.addEventListener("click", () => {
     if (expPre) expPre.appendChild(newPre);
     newPreArray.push(newPre);
     const contain: HTMLDivElement | null = newPre.querySelector(".detailContainer");
-    if (contain){
+    if (contain) {
         contain.style.border = "none";
         // contain.style.marginTop="10px"
     }
-  
+
 
 
 
@@ -684,24 +684,167 @@ if (savebutton) {
     })
 
 }
-// creating download logic
+// // creating download logic
+// const download: HTMLDivElement | null = document.querySelector(".download");
+// const resume: HTMLDivElement | null = document.querySelector(".borderbox");
+
+// download?.addEventListener("click", () => {
+
+//     if (resume) {
+
+//         // Temporarily hide everything except the preview box
+//         const originalContent = document.body.innerHTML; // Save original page content
+//         document.body.innerHTML = resume.innerHTML; // Replace with preview content
+
+//         window.print(); // Trigger the print dialog
+//     }
+
+
+// })
 const download: HTMLDivElement | null = document.querySelector(".download");
 const resume: HTMLDivElement | null = document.querySelector(".borderbox");
+
 download?.addEventListener("click", () => {
     if (resume) {
+        // Create a hidden iframe for the printable content
+        const iframe = document.createElement("iframe");
+        iframe.style.position = "absolute";
+        iframe.style.top = "-10000px"; // Move it out of view
+        document.body.appendChild(iframe);
 
-        // Temporarily hide everything except the preview box
-        const originalContent = document.body.innerHTML; // Save original page content
-        document.body.innerHTML = resume.innerHTML; // Replace with preview content
+        const iframeDoc = iframe.contentDocument || iframe.contentWindow?.document;
+        if (iframeDoc) {
+            iframeDoc.open();
+            iframeDoc.write(`
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <title>Print Resume</title>
+          <style>
+    .detailContainer {
+    border-top: 2px solid black;
+    margin: 8px 0px 10px 0px;
+}
+    .fieldmeasurements {
+    padding: 2px;
+}
+    body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+    .heading {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px
+}
+    .headingS {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px
+}
+    .personaldetails {
+    padding: 10px 10px 3px 10px;
 
-        window.print(); // Trigger the print dialog
+}
+    .personal {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 7px;
+    gap: 15px;
 
-        document.body.innerHTML = originalContent; // Restore original page content
-        location.reload();
+
+}
+    .borderbox {
+    border: 2px solid #2D3639;
+    background-color: white;
+    padding: 80px 60px 100px 60px;
+    font-family: "Calibri";
+    position: relative;
+     break-inside: avoid;
+
+}
+
+#name {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#role {
+    font-size: 22px;
+
+}
+
+/* summary */
+#summaryText {
+    border-top: 2px solid black;
+    margin: 8px 0px 20px 0px;
+    padding: 10px;
+
+}
+
+/* experience */
+
+#companyName {
+    font-size: 17px;
+}
+
+#title {
+    font-size: 19px;
+    font-weight: 600
+}
+
+.newPreTitle {
+    font-size: 19px;
+    font-weight: 600
+}
+
+.newPreComName {
+    font-size: 17px;
+
+}
+
+/* education */
+#schoolname {
+    font-size: 19px;
+    font-weight: 600
+}
+
+#degree {
+    font-size: 18px;
+
+}
+
+.newSchoolP {
+    font-size: 19px;
+    font-weight: 600
+}
+
+.newFieldP {
+    font-size: 18px;
+
+}
+
+          </style>
+        </head>
+        <body>
+          ${resume.innerHTML}
+        </body>
+        </html>
+      `);
+            iframeDoc.close();
+
+            // Trigger the print dialog in the iframe
+            iframe.contentWindow?.focus();
+            iframe.contentWindow?.print();
+        }
+
+        // Remove the iframe after a short delay
+        setTimeout(() => {
+            iframe.remove();
+        }, 1000);
     }
+});
 
-
-})
 
 
 
