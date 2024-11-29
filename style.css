@@ -662,27 +662,13 @@ body {
     .addBut {
         font-size: 12px;
     }
-}
-
-@media print {
-
-    /* Ensure full width and reset margins for the body */
-    html,
-    body {
-        width: 100%;
-        overflow: visible;
-        margin: 0;
-        padding: 0;
+    #name {
+        font-size: 25px;
     }
-
-
-    /* Ensure the print-section is visible */
-    .borderbox {
-        width: 100%;
-        background-color: white;
-        color: black;
-        padding: 80px 60px 100px 60px;
-        border:2px solid red
-
+    
+    #role {
+        font-size: 18px;
+    
     }
 }
+
