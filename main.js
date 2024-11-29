@@ -563,6 +563,126 @@ if (savebutton) {
         }
     });
 }
+// const download: HTMLDivElement | null = document.querySelector(".download");
+// const resume: HTMLDivElement | null = document.querySelector(".borderbox");
+// download?.addEventListener("click", () => {
+//     if (resume) {
+//         // Open a new window for the printable content
+//         const printWindow = window.open("", "_blank");
+//         if (printWindow) {
+//             // Create an iframe inside the print window to isolate content for printing
+//             const iframe = printWindow.document.createElement("iframe");
+//             iframe.style.width = "100%";
+//             iframe.style.height = "100%";
+//             iframe.style.border = "none";
+//             printWindow.document.body.appendChild(iframe);
+//             const iframeDoc = iframe.contentDocument || iframe.contentWindow?.document;
+//             if (iframeDoc) {
+//                 iframeDoc.open();
+//                 iframeDoc.write(`
+//                     <!DOCTYPE html>
+//                     <html>
+//                     <head>
+//                         <title>Print Resume</title>
+//                         <style>
+//                             /* General Styles */
+//                             body {
+//                                 font-family: Arial, sans-serif;
+//                                 margin: 20px;
+//                             }
+//                             .borderbox {
+//                                 border: 2px solid #2D3639;
+//                                 background-color: white;
+//                                 padding: 80px 60px 100px 60px;
+//                                 font-family: "Calibri";
+//                                 position: relative;
+//                                 break-inside: avoid;
+//                             }
+//                             #name {
+//                                 font-size: 30px;
+//                                 font-weight: bold;
+//                             }
+//                             #role {
+//                                 font-size: 22px;
+//                             }
+//                             #summaryText {
+//                                 border-top: 2px solid black;
+//                                 margin: 8px 0px 20px 0px;
+//                                 padding: 10px;
+//                             }
+//                             #companyName {
+//                                 font-size: 17px;
+//                             }
+//                             #title {
+//                                 font-size: 19px;
+//                                 font-weight: 600;
+//                             }
+//                             .newPreTitle {
+//                                 font-size: 19px;
+//                                 font-weight: 600;
+//                             }
+//                             .newPreComName {
+//                                 font-size: 17px;
+//                             }
+//                             #schoolname {
+//                                 font-size: 19px;
+//                                 font-weight: 600;
+//                             }
+//                             #degree {
+//                                 font-size: 18px;
+//                             }
+//                             .newSchoolP {
+//                                 font-size: 19px;
+//                                 font-weight: 600;
+//                             }
+//                             .newFieldP {
+//                                 font-size: 18px;
+//                             }
+//                             .detailContainer {
+//                                 border-top: 2px solid black;
+//                                 margin: 8px 0px 10px 0px;
+//                             }
+//                             .fieldmeasurements {
+//                                 padding: 2px;
+//                             }
+//                             .heading {
+//                                 display: flex;
+//                                 justify-content: center;
+//                                 margin-top: 50px;
+//                             }
+//                             .headingS {
+//                                 display: flex;
+//                                 justify-content: center;
+//                                 margin-top: 30px;
+//                             }
+//                             .personaldetails {
+//                                 padding: 10px 10px 3px 10px;
+//                             }
+//                             .personal {
+//                                 display: flex;
+//                                 justify-content: center;
+//                                 margin-bottom: 7px;
+//                                 gap: 15px;
+//                             }
+//                         </style>
+//                     </head>
+//                     <body>
+//                         ${resume.innerHTML}
+//                     </body>
+//                     </html>
+//                 `);
+//                 iframeDoc.close();
+//                 // Ensure the content is fully loaded before triggering print
+//                 iframe.onload = () => {
+//                     iframe.contentWindow?.focus();
+//                     iframe.contentWindow?.print();
+//                     // Optional: Close the window after printing (works well for mobile)
+//                         printWindow.onafterprint = () => printWindow.close();
+//                 };
+//             }
+//         }
+//     }
+// });
 var download = document.querySelector(".download");
 var resume = document.querySelector(".borderbox");
 download === null || download === void 0 ? void 0 : download.addEventListener("click", function () {
@@ -584,13 +704,15 @@ download === null || download === void 0 ? void 0 : download.addEventListener("c
                 iframeDoc.close();
                 // Ensure the content is fully loaded before triggering print
                 iframe_1.onload = function () {
-                    var _a, _b;
+                    var _a;
                     (_a = iframe_1.contentWindow) === null || _a === void 0 ? void 0 : _a.focus();
-                    (_b = iframe_1.contentWindow) === null || _b === void 0 ? void 0 : _b.print();
-                    // Optional: Close the window after printing (works well for mobile)
+                    // Trigger the print dialog for both desktop and mobile devices
                     setTimeout(function () {
+                        var _a;
+                        (_a = iframe_1.contentWindow) === null || _a === void 0 ? void 0 : _a.print();
+                        // Close the window after printing (only on desktop and mobile)
                         printWindow_1.close();
-                    }, 500);
+                    }, 100); // Delay slightly to ensure printing on mobile
                 };
             }
         }
