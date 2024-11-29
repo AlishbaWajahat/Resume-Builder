@@ -684,7 +684,6 @@ if (savebutton) {
     })
 
 }
-// // creating download logic
 
 const download: HTMLDivElement | null = document.querySelector(".download");
 const resume: HTMLDivElement | null = document.querySelector(".borderbox");
@@ -804,7 +803,7 @@ download?.addEventListener("click", () => {
                     iframe.contentWindow?.focus();
                     iframe.contentWindow?.print();
 
-                    // Close the window after a delay (500ms) to ensure the print dialog has finished
+                    // Optional: Close the window after printing (works well for mobile)
                     setTimeout(() => {
                         printWindow.close();
                     }, 500);
@@ -813,6 +812,7 @@ download?.addEventListener("click", () => {
         }
     }
 });
+
 
 
 

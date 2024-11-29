@@ -563,7 +563,6 @@ if (savebutton) {
         }
     });
 }
-// // creating download logic
 var download = document.querySelector(".download");
 var resume = document.querySelector(".borderbox");
 download === null || download === void 0 ? void 0 : download.addEventListener("click", function () {
@@ -588,7 +587,7 @@ download === null || download === void 0 ? void 0 : download.addEventListener("c
                     var _a, _b;
                     (_a = iframe_1.contentWindow) === null || _a === void 0 ? void 0 : _a.focus();
                     (_b = iframe_1.contentWindow) === null || _b === void 0 ? void 0 : _b.print();
-                    // Close the window after a delay (500ms) to ensure the print dialog has finished
+                    // Optional: Close the window after printing (works well for mobile)
                     setTimeout(function () {
                         printWindow_1.close();
                     }, 500);
