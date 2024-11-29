@@ -621,7 +621,7 @@ body {
     .button {
         width: 150px;
         height: 40px;
-        font-size: 18px;
+        font-size: 12px;
     }
 
 }
@@ -661,10 +661,6 @@ body {
 
     .addBut {
         font-size: 12px;
-    }
-    .button{
-        font-size: 12px;
-
     }
     #name {
         font-size: 25px;
