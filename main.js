@@ -808,6 +808,7 @@ if (savebutton) {
 // });
 var download = document.querySelector(".download");
 var resume = document.querySelector(".borderbox");
+var isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 download === null || download === void 0 ? void 0 : download.addEventListener("click", function () {
     var _a;
     if (resume) {
@@ -831,7 +832,14 @@ download === null || download === void 0 ? void 0 : download.addEventListener("c
                     (_a = iframe_1.contentWindow) === null || _a === void 0 ? void 0 : _a.focus();
                     (_b = iframe_1.contentWindow) === null || _b === void 0 ? void 0 : _b.print();
                     // Optional: Close the window after printing (works well for mobile)
-                    printWindow_1.onafterprint = function () { return printWindow_1.close(); };
+                    if (isMobile) {
+                        printWindow_1.onafterprint = function () { return printWindow_1.close(); };
+                    }
+                    else {
+                        setTimeout(function () {
+                            printWindow_1.close();
+                        }, 500);
+                    }
                 };
             }
         }

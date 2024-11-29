@@ -942,6 +942,7 @@ if (savebutton) {
 // });
 const download: HTMLDivElement | null = document.querySelector(".download");
 const resume: HTMLDivElement | null = document.querySelector(".borderbox");
+const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
 download?.addEventListener("click", () => {
     if (resume) {
@@ -1059,7 +1060,14 @@ download?.addEventListener("click", () => {
                     iframe.contentWindow?.print();
 
                     // Optional: Close the window after printing (works well for mobile)
-                    printWindow.onafterprint = () => printWindow.close();
+                    if (isMobile) {
+                        printWindow.onafterprint = () => printWindow.close();
+                    }else{
+                        setTimeout(() => {
+                            printWindow.close();
+                        }, 500);
+                    }
+                    
                 };
             }
         }
