@@ -574,28 +574,138 @@ if (savebutton) {
 //         window.print(); // Trigger the print dialog
 //     }
 // })
+// const download: HTMLDivElement | null = document.querySelector(".download");
+// const resume: HTMLDivElement | null = document.querySelector(".borderbox");
+// download?.addEventListener("click", () => {
+//     if (resume) {
+//         // Create a hidden iframe for the printable content
+//         const iframe = document.createElement("iframe");
+//         iframe.style.position = "absolute";
+//         iframe.style.top = "-10000px"; // Move it out of view
+//         document.body.appendChild(iframe);
+//         const iframeDoc = iframe.contentDocument || iframe.contentWindow?.document;
+//         if (iframeDoc) {
+//             iframeDoc.open();
+//             iframeDoc.write(`
+//         <!DOCTYPE html>
+//         <html>
+//         <head>
+//           <title>Print Resume</title>
+//           <style>
+//     .detailContainer {
+//     border-top: 2px solid black;
+//     margin: 8px 0px 10px 0px;
+// }
+//     .fieldmeasurements {
+//     padding: 2px;
+// }
+//     body {
+//     font-family: Arial, sans-serif;
+//     margin: 20px;
+// }
+//     .heading {
+//     display: flex;
+//     justify-content: center;
+//     margin-top: 50px
+// }
+//     .headingS {
+//     display: flex;
+//     justify-content: center;
+//     margin-top: 30px
+// }
+//     .personaldetails {
+//     padding: 10px 10px 3px 10px;
+// }
+//     .personal {
+//     display: flex;
+//     justify-content: center;
+//     margin-bottom: 7px;
+//     gap: 15px;
+// }
+//     .borderbox {
+//     border: 2px solid #2D3639;
+//     background-color: white;
+//     padding: 80px 60px 100px 60px;
+//     font-family: "Calibri";
+//     position: relative;
+//      break-inside: avoid;
+// }
+// #name {
+//     font-size: 30px;
+//     font-weight: bold;
+// }
+// #role {
+//     font-size: 22px;
+// }
+// /* summary */
+// #summaryText {
+//     border-top: 2px solid black;
+//     margin: 8px 0px 20px 0px;
+//     padding: 10px;
+// }
+// /* experience */
+// #companyName {
+//     font-size: 17px;
+// }
+// #title {
+//     font-size: 19px;
+//     font-weight: 600
+// }
+// .newPreTitle {
+//     font-size: 19px;
+//     font-weight: 600
+// }
+// .newPreComName {
+//     font-size: 17px;
+// }
+// /* education */
+// #schoolname {
+//     font-size: 19px;
+//     font-weight: 600
+// }
+// #degree {
+//     font-size: 18px;
+// }
+// .newSchoolP {
+//     font-size: 19px;
+//     font-weight: 600
+// }
+// .newFieldP {
+//     font-size: 18px;
+// }
+//           </style>
+//         </head>
+//         <body>
+//           ${resume.innerHTML}
+//         </body>
+//         </html>
+//       `);
+//             iframeDoc.close();
+//             // Trigger the print dialog in the iframe
+//             iframe.contentWindow?.focus();
+//             iframe.contentWindow?.print();
+//         }
+//         // Remove the iframe after a short delay
+//         setTimeout(() => {
+//             iframe.remove();
+//         }, 1000);
+//     }
+// });
 var download = document.querySelector(".download");
 var resume = document.querySelector(".borderbox");
 download === null || download === void 0 ? void 0 : download.addEventListener("click", function () {
-    var _a, _b, _c;
     if (resume) {
-        // Create a hidden iframe for the printable content
-        var iframe_1 = document.createElement("iframe");
-        iframe_1.style.position = "absolute";
-        iframe_1.style.top = "-10000px"; // Move it out of view
-        document.body.appendChild(iframe_1);
-        var iframeDoc = iframe_1.contentDocument || ((_a = iframe_1.contentWindow) === null || _a === void 0 ? void 0 : _a.document);
-        if (iframeDoc) {
-            iframeDoc.open();
-            iframeDoc.write("\n        <!DOCTYPE html>\n        <html>\n        <head>\n          <title>Print Resume</title>\n          <style>\n          .detailContainer {\n            border-top: 2px solid black;\n            margin: 8px 0px 10px 0px;\n            }\n          .fieldmeasurements {\n            padding: 2px;\n            }\n            body {\n              font-family: Arial, sans-serif;\n              margin: 20px;\n            }\n              .heading {\n    display: flex;\n    justify-content: center;\n    margin-top: 50px\n}\n    .headingS {\n    display: flex;\n    justify-content: center;\n    margin-top: 30px\n}\n    .personaldetails {\n    padding: 10px 10px 3px 10px;\n\n}\n    .personal {\n    display: flex;\n    justify-content: center;\n    margin-bottom: 7px;\n    gap: 15px;\n\n\n}\n    .borderbox {\n    border: 2px solid #2D3639;\n    background-color: white;\n    padding: 80px 60px 100px 60px;\n    font-family: \"Calibri\";\n    position: relative;\n     break-inside: avoid;\n\n}\n\n#name {\n    font-size: 30px;\n    font-weight: bold;\n}\n\n#role {\n    font-size: 22px;\n\n}\n\n/* summary */\n#summaryText {\n    border-top: 2px solid black;\n    margin: 8px 0px 20px 0px;\n    padding: 10px;\n\n}\n\n/* experience */\n\n#companyName {\n    font-size: 17px;\n}\n\n#title {\n    font-size: 19px;\n    font-weight: 600\n}\n\n.newPreTitle {\n    font-size: 19px;\n    font-weight: 600\n}\n\n.newPreComName {\n    font-size: 17px;\n\n}\n\n/* education */\n#schoolname {\n    font-size: 19px;\n    font-weight: 600\n}\n\n#degree {\n    font-size: 18px;\n\n}\n\n.newSchoolP {\n    font-size: 19px;\n    font-weight: 600\n}\n\n.newFieldP {\n    font-size: 18px;\n\n}\n\n          </style>\n        </head>\n        <body>\n          ".concat(resume.innerHTML, "\n        </body>\n        </html>\n      "));
-            iframeDoc.close();
-            // Trigger the print dialog in the iframe
-            (_b = iframe_1.contentWindow) === null || _b === void 0 ? void 0 : _b.focus();
-            (_c = iframe_1.contentWindow) === null || _c === void 0 ? void 0 : _c.print();
+        // Open a new window for the printable content
+        var printWindow_1 = window.open("", "_blank");
+        if (printWindow_1) {
+            printWindow_1.document.open();
+            printWindow_1.document.write("\n                <!DOCTYPE html>\n                <html>\n                <head>\n                    <title>Print Resume</title>\n                    <style>\n                        /* General Styles */\n                        body {\n                            font-family: Arial, sans-serif;\n                            margin: 20px;\n                        }\n                        .borderbox {\n                            border: 2px solid #2D3639;\n                            background-color: white;\n                            padding: 80px 60px 100px 60px;\n                            font-family: \"Calibri\";\n                            position: relative;\n                            break-inside: avoid;\n                        }\n                        #name {\n                            font-size: 30px;\n                            font-weight: bold;\n                        }\n                        #role {\n                            font-size: 22px;\n                        }\n                        #summaryText {\n                            border-top: 2px solid black;\n                            margin: 8px 0px 20px 0px;\n                            padding: 10px;\n                        }\n                        #companyName {\n                            font-size: 17px;\n                        }\n                        #title {\n                            font-size: 19px;\n                            font-weight: 600;\n                        }\n                        .newPreTitle {\n                            font-size: 19px;\n                            font-weight: 600;\n                        }\n                        .newPreComName {\n                            font-size: 17px;\n                        }\n                        #schoolname {\n                            font-size: 19px;\n                            font-weight: 600;\n                        }\n                        #degree {\n                            font-size: 18px;\n                        }\n                        .newSchoolP {\n                            font-size: 19px;\n                            font-weight: 600;\n                        }\n                        .newFieldP {\n                            font-size: 18px;\n                        }\n                        .detailContainer {\n                            border-top: 2px solid black;\n                            margin: 8px 0px 10px 0px;\n                        }\n                        .fieldmeasurements {\n                            padding: 2px;\n                        }\n                        .heading {\n                            display: flex;\n                            justify-content: center;\n                            margin-top: 50px;\n                        }\n                        .headingS {\n                            display: flex;\n                            justify-content: center;\n                            margin-top: 30px;\n                        }\n                        .personaldetails {\n                            padding: 10px 10px 3px 10px;\n                        }\n                        .personal {\n                            display: flex;\n                            justify-content: center;\n                            margin-bottom: 7px;\n                            gap: 15px;\n                        }\n                    </style>\n                </head>\n                <body>\n                    ".concat(resume.innerHTML, "\n                </body>\n                </html>\n            "));
+            printWindow_1.document.close();
+            // Focus the new window and trigger the print dialog
+            printWindow_1.focus();
+            printWindow_1.print();
+            // Optional: Close the window after printing (works well for mobile)
+            printWindow_1.onafterprint = function () { return printWindow_1.close(); };
         }
-        // Remove the iframe after a short delay
-        setTimeout(function () {
-            iframe_1.remove();
-        }, 1000);
     }
 });
