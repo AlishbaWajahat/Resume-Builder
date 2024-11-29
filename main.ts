@@ -805,7 +805,7 @@ download?.addEventListener("click", () => {
 
                     // Optional: Close the window after printing (works well for mobile)
                     setTimeout(() => {
-                        printWindow.close();
+                        printWindow.onafterprint = () => printWindow.close();
                     }, 500);
                 };
             }
