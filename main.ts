@@ -685,285 +685,14 @@ if (savebutton) {
 
 }
 // // creating download logic
-// const download: HTMLDivElement | null = document.querySelector(".download");
-// const resume: HTMLDivElement | null = document.querySelector(".borderbox");
 
-// download?.addEventListener("click", () => {
-
-//     if (resume) {
-
-//         // Temporarily hide everything except the preview box
-//         const originalContent = document.body.innerHTML; // Save original page content
-//         document.body.innerHTML = resume.innerHTML; // Replace with preview content
-
-//         window.print(); // Trigger the print dialog
-//     }
-
-
-// })
-// const download: HTMLDivElement | null = document.querySelector(".download");
-// const resume: HTMLDivElement | null = document.querySelector(".borderbox");
-
-// download?.addEventListener("click", () => {
-//     if (resume) {
-//         // Create a hidden iframe for the printable content
-//         const iframe = document.createElement("iframe");
-//         iframe.style.position = "absolute";
-//         iframe.style.top = "-10000px"; // Move it out of view
-//         document.body.appendChild(iframe);
-
-//         const iframeDoc = iframe.contentDocument || iframe.contentWindow?.document;
-//         if (iframeDoc) {
-//             iframeDoc.open();
-//             iframeDoc.write(`
-//         <!DOCTYPE html>
-//         <html>
-//         <head>
-//           <title>Print Resume</title>
-//           <style>
-//     .detailContainer {
-//     border-top: 2px solid black;
-//     margin: 8px 0px 10px 0px;
-// }
-//     .fieldmeasurements {
-//     padding: 2px;
-// }
-//     body {
-//     font-family: Arial, sans-serif;
-//     margin: 20px;
-// }
-//     .heading {
-//     display: flex;
-//     justify-content: center;
-//     margin-top: 50px
-// }
-//     .headingS {
-//     display: flex;
-//     justify-content: center;
-//     margin-top: 30px
-// }
-//     .personaldetails {
-//     padding: 10px 10px 3px 10px;
-
-// }
-//     .personal {
-//     display: flex;
-//     justify-content: center;
-//     margin-bottom: 7px;
-//     gap: 15px;
-
-
-// }
-//     .borderbox {
-//     border: 2px solid #2D3639;
-//     background-color: white;
-//     padding: 80px 60px 100px 60px;
-//     font-family: "Calibri";
-//     position: relative;
-//      break-inside: avoid;
-
-// }
-
-// #name {
-//     font-size: 30px;
-//     font-weight: bold;
-// }
-
-// #role {
-//     font-size: 22px;
-
-// }
-
-// /* summary */
-// #summaryText {
-//     border-top: 2px solid black;
-//     margin: 8px 0px 20px 0px;
-//     padding: 10px;
-
-// }
-
-// /* experience */
-
-// #companyName {
-//     font-size: 17px;
-// }
-
-// #title {
-//     font-size: 19px;
-//     font-weight: 600
-// }
-
-// .newPreTitle {
-//     font-size: 19px;
-//     font-weight: 600
-// }
-
-// .newPreComName {
-//     font-size: 17px;
-
-// }
-
-// /* education */
-// #schoolname {
-//     font-size: 19px;
-//     font-weight: 600
-// }
-
-// #degree {
-//     font-size: 18px;
-
-// }
-
-// .newSchoolP {
-//     font-size: 19px;
-//     font-weight: 600
-// }
-
-// .newFieldP {
-//     font-size: 18px;
-
-// }
-
-//           </style>
-//         </head>
-//         <body>
-//           ${resume.innerHTML}
-//         </body>
-//         </html>
-//       `);
-//             iframeDoc.close();
-
-//             // Trigger the print dialog in the iframe
-//             iframe.contentWindow?.focus();
-//             iframe.contentWindow?.print();
-//         }
-
-//         // Remove the iframe after a short delay
-//         setTimeout(() => {
-//             iframe.remove();
-//         }, 1000);
-//     }
-// });
-// const download: HTMLDivElement | null = document.querySelector(".download");
-// const resume: HTMLDivElement | null = document.querySelector(".borderbox");
-
-// download?.addEventListener("click", () => {
-//     if (resume) {
-//         // Open a new window for the printable content
-//         const printWindow = window.open("", "_blank");
-
-//         if (printWindow) {
-//             printWindow.document.open();
-//             printWindow.document.write(`
-//                 <!DOCTYPE html>
-//                 <html>
-//                 <head>
-//                     <title>Print Resume</title>
-//                     <style>
-//                         /* General Styles */
-//                         body {
-//                             font-family: Arial, sans-serif;
-//                             margin: 20px;
-//                         }
-//                         .borderbox {
-//                             border: 2px solid #2D3639;
-//                             background-color: white;
-//                             padding: 80px 60px 100px 60px;
-//                             font-family: "Calibri";
-//                             position: relative;
-//                             break-inside: avoid;
-//                         }
-//                         #name {
-//                             font-size: 30px;
-//                             font-weight: bold;
-//                         }
-//                         #role {
-//                             font-size: 22px;
-//                         }
-//                         #summaryText {
-//                             border-top: 2px solid black;
-//                             margin: 8px 0px 20px 0px;
-//                             padding: 10px;
-//                         }
-//                         #companyName {
-//                             font-size: 17px;
-//                         }
-//                         #title {
-//                             font-size: 19px;
-//                             font-weight: 600;
-//                         }
-//                         .newPreTitle {
-//                             font-size: 19px;
-//                             font-weight: 600;
-//                         }
-//                         .newPreComName {
-//                             font-size: 17px;
-//                         }
-//                         #schoolname {
-//                             font-size: 19px;
-//                             font-weight: 600;
-//                         }
-//                         #degree {
-//                             font-size: 18px;
-//                         }
-//                         .newSchoolP {
-//                             font-size: 19px;
-//                             font-weight: 600;
-//                         }
-//                         .newFieldP {
-//                             font-size: 18px;
-//                         }
-//                         .detailContainer {
-//                             border-top: 2px solid black;
-//                             margin: 8px 0px 10px 0px;
-//                         }
-//                         .fieldmeasurements {
-//                             padding: 2px;
-//                         }
-//                         .heading {
-//                             display: flex;
-//                             justify-content: center;
-//                             margin-top: 50px;
-//                         }
-//                         .headingS {
-//                             display: flex;
-//                             justify-content: center;
-//                             margin-top: 30px;
-//                         }
-//                         .personaldetails {
-//                             padding: 10px 10px 3px 10px;
-//                         }
-//                         .personal {
-//                             display: flex;
-//                             justify-content: center;
-//                             margin-bottom: 7px;
-//                             gap: 15px;
-//                         }
-//                     </style>
-//                 </head>
-//                 <body>
-//                     ${resume.innerHTML}
-//                 </body>
-//                 </html>
-//             `);
-//             printWindow.document.close();
-
-//             // Focus the new window and trigger the print dialog
-//             printWindow.focus();
-//             printWindow.print();
-
-//             // Optional: Close the window after printing (works well for mobile)
-//             printWindow.onafterprint = () => printWindow.close();
-//         }
-//     }
-// });
 const download: HTMLDivElement | null = document.querySelector(".download");
 const resume: HTMLDivElement | null = document.querySelector(".borderbox");
 
 download?.addEventListener("click", () => {
     if (resume) {
         // Open a new window for the printable content
-        const printWindow = window.open("print", "_blank");
+        const printWindow = window.open("", "_blank");
 
         if (printWindow) {
             // Create an iframe inside the print window to isolate content for printing
@@ -1075,13 +804,16 @@ download?.addEventListener("click", () => {
                     iframe.contentWindow?.focus();
                     iframe.contentWindow?.print();
 
-                    // Optional: Close the window after printing (works well for mobile)
-                    printWindow.onafterprint = () => printWindow.close();
+                    // Close the window after a delay (500ms) to ensure the print dialog has finished
+                    setTimeout(() => {
+                        printWindow.close();
+                    }, 500);
                 };
             }
         }
     }
 });
+
 
 
 
